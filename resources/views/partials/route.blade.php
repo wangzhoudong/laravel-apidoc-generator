@@ -100,21 +100,19 @@ fetch(url, {
 
 @endforeach
 @if(count($route['bodyParameters']))
-#### Body Parameters
-
-Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
+#### 请求参数（Body Parameters）
+| 参数 | 类型 | 是否必须 | 说明 |
+| ---- | :---- | ---- | ---- |
 @foreach($route['bodyParameters'] as $attribute => $parameter)
-    {{$attribute}} | {{$parameter['type']}} | @if($parameter['required']) required @else optional @endif | {!! $parameter['description'] !!}
+    {{$attribute}} | {{$parameter['type']}} | @if($parameter['required']) 是 @else 否 @endif | {!! $parameter['description'] !!}
 @endforeach
 @endif
 @if(count($route['queryParameters']))
-#### Query Parameters
-
-Parameter | Status | Description
---------- | ------- | ------- | -----------
+#### 请求参数 （Query Parameters
+| 参数 | 类型 | 说明 |
+| ---- | :---- | ---- |
 @foreach($route['queryParameters'] as $attribute => $parameter)
-    {{$attribute}} | @if($parameter['required']) required @else optional @endif | {!! $parameter['description'] !!}
+    {{$attribute}} | @if($parameter['required']) 是 @else 否 @endif | {!! $parameter['description'] !!}
 @endforeach
 @endif
 
